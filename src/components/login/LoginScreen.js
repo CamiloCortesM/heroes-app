@@ -7,15 +7,16 @@ export const LoginScreen = () => {
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogin = () => {
-
     dispatch({
-      type:types.login,
-      payload:{
-        name:'Camilo',
-      }
-    })
-    navigate("/marvel", {
-        replace: true
+      type: types.login,
+      payload: {
+        name: "Camilo",
+      },
+    });
+
+    const lastPath = localStorage.getItem("lastPath") || "/marvel";
+    navigate(lastPath, {
+      replace: true,
     });
   };
   return (
